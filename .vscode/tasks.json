@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar monitoramento espacial",
+            "type": "shell",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "main.c",
+                "-o",
+                "monitoramento.exe"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compila o sistema de monitoramento espacial em C."
+        },
+        {
+            "label": "Executar monitoramento espacial",
+            "type": "shell",
+            "command": ".\\monitoramento.exe",
+            "dependsOn": "Compilar monitoramento espacial",
+            "options": {
+                "env": {
+                    "PATH": "C:\\msys64\\ucrt64\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [],
+            "detail": "Executa o programa apos a compilacao."
+        }
+    ]
+}
